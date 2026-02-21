@@ -1,0 +1,204 @@
+/* Sticky Audio Player - Fixed to bottom */
+.sticky-audio-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--background-primary);
+  border-top: 1px solid var(--background-modifier-border);
+  padding: 8px 16px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sticky-audio-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Play/Pause button */
+.sticky-audio-play-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--text-normal);
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+
+.sticky-audio-play-btn:hover {
+  background: var(--background-modifier-hover);
+}
+
+.sticky-audio-play-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+/* Skip buttons */
+.sticky-audio-skip-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+
+.sticky-audio-skip-btn:hover {
+  color: var(--text-normal);
+}
+
+.sticky-audio-skip-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Progress section */
+.sticky-audio-progress-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+/* Title display */
+.sticky-audio-title {
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Progress bar */
+.sticky-audio-progress-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sticky-audio-progress-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--background-modifier-border);
+  border-radius: 3px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.sticky-audio-progress-fill {
+  height: 100%;
+  background: var(--interactive-accent);
+  width: 0%;
+  transition: width 0.1s linear;
+  border-radius: 3px;
+}
+
+.sticky-audio-progress-bar:hover .sticky-audio-progress-fill {
+  background: var(--interactive-accent-hover);
+}
+
+/* Time display */
+.sticky-audio-time {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: var(--font-monospace);
+  white-space: nowrap;
+  min-width: 90px;
+  text-align: right;
+}
+
+/* Speed control */
+.sticky-audio-speed {
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.sticky-audio-speed:hover {
+  color: var(--text-normal);
+  border-color: var(--background-modifier-border-hover);
+}
+
+/* Close button */
+.sticky-audio-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 4px;
+}
+
+.sticky-audio-close:hover {
+  color: var(--text-normal);
+}
+
+.sticky-audio-close svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Add padding to content so it's not hidden behind player */
+body.sticky-audio-active .markdown-reading-view,
+body.sticky-audio-active .markdown-source-view {
+  padding-bottom: 70px;
+}
+
+/* Translation highlighting - [Transl. ...] in spoken lectures */
+.spoken-translation {
+  color: var(--color-cyan, #00b8d4);
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .sticky-audio-container {
+    padding: 6px 12px;
+  }
+
+  .sticky-audio-controls {
+    gap: 8px;
+  }
+
+  .sticky-audio-title {
+    display: none;
+  }
+
+  .sticky-audio-time {
+    min-width: 70px;
+    font-size: 11px;
+  }
+
+  .sticky-audio-speed {
+    display: none;
+  }
+}

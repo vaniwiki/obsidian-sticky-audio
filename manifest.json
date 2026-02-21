@@ -1,0 +1,9 @@
+{
+  "id": "sticky-audio-player",
+  "name": "Sticky Audio Player",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "description": "Shows a sticky audio player at the bottom of the page for files with audio frontmatter",
+  "author": "VANIWIKI",
+  "isDesktopOnly": false
+}
